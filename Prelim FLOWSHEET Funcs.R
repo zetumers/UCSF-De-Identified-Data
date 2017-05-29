@@ -134,3 +134,43 @@ pt_scrape <- function(file_name, pt_lt, row_num, chunk_size, goal_dir, ...){
                 write.csv(df, new_file_name)
         }
 }
+
+
+#Now the same functions with the labs.
+#use piper but use lab scrape, etc.
+
+lab_piper_pt_extract <- function(output, df, pt_id){
+        output <- rbind(output, df[df$Patient_ID %in% pt_id,])
+        return(output)
+}
+
+lab_pt_scrape <- function(file_name, pt_lt, row_num, chunk_size, goal_dir, ...){
+        
+        #goal directory
+        directory <- getwd()
+        
+        #create the batches of patients
+        index <- pt_batch(pt_lt)
+        
+        #cycle through an order of an index of patients
+        for(i in 1:(length(index)-1)){
+                
+                #get the directory back
+                setwd(directory)
+                
+                #create a list of current pts.
+                current_pts <- pt_lt[index[i]:(index[i+1]-1)]
+                new_file_name <- paste("LABS for Pts ",index[i]," to ",index[i+1]-1, ".csv",sep ='')
+                
+                df<- piper(file_name = file_name, func = lab_piper_pt_extract,
+                           row_num = row_num, chunk_size = chunk_size,
+                           pt_id = current_pts)
+                
+                #now put it in the right place!
+                setwd(goal_dir)
+                
+                write.csv(df, new_file_name)
+        }
+}
+
+

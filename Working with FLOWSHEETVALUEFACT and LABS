@@ -35,6 +35,9 @@ it breaks up the list of patients into groups of 25.
 batches of 25 patients. It then writes those batches into .csv files. It is modular - ie, you can start and stop in
 the middle of running it so that you don't need to rerun things over again.
 
+4) You need to do that for lab values as well with LAB.csv or whatever lab file you have.
+Unfortunately, the files are slightly different and so you need a different piper and a different pt_extract.
+
 You should find these functions in the Prelim FLOWSHEET Funcs.R file.
 So, get the number of rows, then get the number of unique patients, and then scrape the FLOWSHEETVALUEFACT.csv file, so
 that you can load small parts of it to check your work. Ideally, you will not have to work with FLOWSHEETVALUEFACT.csv

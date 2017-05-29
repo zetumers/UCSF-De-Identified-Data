@@ -6,6 +6,9 @@ After you have done the preliminary operations, complete the following to work t
   c) format your encounters table
   d) add Non_LONICs to labs
   e) parse as different patients
+    i) there are some problems with reading the names.
+    ii) sometimes they are read in scientific notation.
+    iii) this is < 2% of the labs. None of the non-LOINCed values have this problem.
   f) now everything is combined.
   
   

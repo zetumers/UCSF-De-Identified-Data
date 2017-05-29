@@ -35,6 +35,9 @@ it breaks up the list of patients into groups of 25.
 batches of 25 patients. It then writes those batches into .csv files. It is modular - ie, you can start and stop in
 the middle of running it so that you don't need to rerun things over again.
 
+You should find these functions in the Prelim FLOWSHEET Funcs.R file.
 So, get the number of rows, then get the number of unique patients, and then scrape the FLOWSHEETVALUEFACT.csv file, so
 that you can load small parts of it to check your work. Ideally, you will not have to work with FLOWSHEETVALUEFACT.csv
-again after you have scraped the whole thing.
+again after you have scraped the whole thing. By the end of these three steps, you should have a table for the ROWDIM.txt
+file, and a folder on your computer, external hard-drive, or virtual machine containing csv files with pieces of the
+VALUEFACT file with info for 25 patients on each of them.

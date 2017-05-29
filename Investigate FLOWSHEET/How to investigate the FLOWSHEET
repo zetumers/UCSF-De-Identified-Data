@@ -1,0 +1,15 @@
+There is a problem - we don't have any metadata to use to help navigate this database. To find the correct variables...
+
+1) Use the name search function to find the variables you are looking for.
+  a) use this with the FLOWSHEETROWDIM file, which associates each ID key with a Name.
+2) Then filter the results by form (using the form filter).
+3) Then filter the results by distributional property.
+
+These functions can be found in the "Working with FLOWSHEET" file in R.
+
+4) Look at the distribution of values of the variables you are proposing to use in your population.
+  a) are some of them super rare? Are some of them more common?
+  b) if you filter out certain encounters, does the distribution change? It could be that these variables
+are common in certain encounters more than others.
+
+5) You can bundle variables that refer to the same clinical concept.

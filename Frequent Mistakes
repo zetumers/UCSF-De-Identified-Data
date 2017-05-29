@@ -1,0 +1,4 @@
+1) Unless you have a special parser, you will need to reformat the classes of the columns each time you read the files,
+regardless of how processed they are. Be sure to do this so that things like dates and times get the appropriate structure.
+Otherwise operations like ">=" won't make any sense.
+

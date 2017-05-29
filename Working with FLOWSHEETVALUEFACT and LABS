@@ -1,0 +1,45 @@
+This is a list of functions for working with the FLOWSHEETVALUEFACT.csv file and the FLOWSHEETROWDIM.txt file.
+All of these functions were created by Samuel Zetumer (samuel.zetumer@ucsf.edu, 858 922 2943). He is not particularly
+proud of any of them, so feel free to improve upon them.
+
+PRELIMINARY STEPS:
+1) The FLOWSHEETROWDIM.txt file needs to be converted to a file that can easily be read by read.csv.
+There are many ways to do this. As the file currently reads, it uses white space to demarcate values.
+Open the file, highlight the whitespace, and replace it with an unused character (I used !).
+Demarcating with a "," will not work, because some of the entries contain a comma.
+
+1a) Now read.csv FLOWSHEETROWDIM as a csv file with sep = '!' (or whatever separation character you used).
+Make sure that the dimensions of the file are 48444 by 9. If they are something different, you have not
+parsed your txt file appropriately, or are parsing the wrong file.
+
+2) Get a section of the FLOWSHEETVALUEFACT.csv on some virtual machine or external harddrive (password protected).
+This will likely require contacting CTSI.
+
+3) Get preliminary information on your large FLOWSHEETVALUEFACT.csv file using the following programs:
+
+  get_rows - this gets you the row number of the huge file you're working with. This is important because it
+makes opening a connection to the file alot easier.
+
+  piper - this function applies other functions to chunks of the file, aggregates the results, and returns them.
+We use it because you likely can't read the entire file at once. If you can, just do that instead.
+
+  piper_unique_pts - this function returns the list of patients when combined with piper.
+
+  piper_pt_extract - this function returns an extract of FLOWSHEETVALUEFACT.csv containing all the information on
+a list of patients (that you enter). It extracts all the relevant information for those patients.
+
+  pt_batch - this function takes a list of patients, and returns and list of batches of 25 of those patients, eg.,
+it breaks up the list of patients into groups of 25.
+
+  pt_scrape - this function combine piper, piper_pt_extract, and pt_batch to scrape all of FLOWSHEETVALUEFACT.csv into
+batches of 25 patients. It then writes those batches into .csv files. It is modular - ie, you can start and stop in
+the middle of running it so that you don't need to rerun things over again.
+
+4) You need to do that for lab values as well with LAB.csv or whatever lab file you have.
+Unfortunately, the files are slightly different and so you need a different piper and a different pt_extract.
+
+You should find these functions in the Prelim FLOWSHEET Funcs.R file.
+So, get the number of rows, then get the number of unique patients, and then scrape the FLOWSHEETVALUEFACT.csv file, so
+that you can load small parts of it to check your work. Ideally, you will not have to work with FLOWSHEETVALUEFACT.csv
+again after you have scraped the whole thing. By the end of these three steps, you should have a table in R for the ROWDIM.txt
+file, and a folder containing csv files with all the data from the VALUEFACT file for 25 patients on each of them.

@@ -3,4 +3,9 @@ Patients must be processed in the following ways.
   a) Blocks are periods of time from the start.
     i) so for example, if the blocks are 6 hours, then a lab that occurs
     13 hours after admission would be in block 3.
-2) 
+2) The VARIABLES NEED TO BE CONSOLIDATED.
+  a) variables of the same type in the same block need to be aggregated.
+  b) this also means getting rid of the variables that aren't in the current project
+3) Then we have to impute missing variables.
+  a) Impute the variables in the first block.
+  b) Impute the variables in the subsequent block.

@@ -1,4 +1,15 @@
 1) Unless you have a special parser, you will need to reformat the classes of the columns each time you read the files,
 regardless of how processed they are. Be sure to do this so that things like dates and times get the appropriate structure.
 Otherwise operations like ">=" won't make any sense.
+    For some reason, the format of the dates is different when reading it in than when formatting it. So you also need to make
+    sure that the dates aren't format shifting, or changing values to fit different formats.
+As it stands, when you upload a file, use:
+
+total3$DateTime <- parse_date_time(total3$DateTime, "Y-m-d H:M:S", tz = "UTC")
+total3$patient_ID <- as.character(total3$patient_ID)
+
+to format it into the appropriate time structure.
+
+2) Remember to format every type of data.
+
 

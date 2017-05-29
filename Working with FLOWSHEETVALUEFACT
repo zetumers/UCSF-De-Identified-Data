@@ -36,4 +36,5 @@ batches of 25 patients. It then writes those batches into .csv files. It is modu
 the middle of running it so that you don't need to rerun things over again.
 
 So, get the number of rows, then get the number of unique patients, and then scrape the FLOWSHEETVALUEFACT.csv file, so
-that you can load small parts of it to check your work.
+that you can load small parts of it to check your work. Ideally, you will not have to work with FLOWSHEETVALUEFACT.csv
+again after you have scraped the whole thing.

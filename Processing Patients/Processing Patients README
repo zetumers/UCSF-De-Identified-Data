@@ -1,11 +1,13 @@
 Patients must be processed in the following ways.
-1) A block must be assigned to each time value
-  a) Blocks are periods of time from the start.
+1) A block must be assigned to each time value from the start of each encounter for each patient.
+  a) Blocks are periods of time from the start of the patient encounter.
     i) so for example, if the blocks are 6 hours, then a lab that occurs
     13 hours after admission would be in block 3.
 2) The VARIABLES NEED TO BE CONSOLIDATED.
-  a) variables of the same type in the same block need to be aggregated.
+  a) variables of the same type in the same block need to be aggregated in some way.
+    i) this can be done with the application of any function on the vector of the variables.
   b) this also means getting rid of the variables that aren't in the current project
 3) Then we have to impute missing variables.
   a) Impute the variables in the first block.
-  b) Impute the variables in the subsequent block.
+  b) Impute the variables in the subsequent blocks with push forward or feed forward or whatever
+  it's called.

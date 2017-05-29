@@ -1,1 +1,12 @@
 These functions are designed for investigating Lab values.
+It is basically the same process as working with non-lab values, except for the following:
+
+1) For some reason, these lab values have LOINC codes. Watch a tutorial/introduction about
+that online if you don't know what those are. Then, I would recommend signing up for a LOINC
+account, and using their online data dictionary to make your search easier.
+
+2) Use that online data dictionary with the name, value form, and distribution filters to make
+your search for the correct variables easy and valid.
+
+3) In general, patients have many fewer labs than non-LOINCed values (which include all the vitals),
+so you can probably upload all your labs and work with them at the same time.

@@ -4,5 +4,23 @@ After you have done the preliminary operations, complete the following to work t
   a) format your FLOWSHEETVALUEFACT table
   b) format your labs table
   c) format your encounters table
+  d) add Non_LONICs to labs
+  e) parse as different patients
   
   
+Examples:
+
+var_key <- read.csv("FLOWSHEETROWDIM.txt copy2.txt",sep ='!')
+tp <- read.csv("Pts 726 to 750.csv")
+tp <- format_plate(tp)
+tp <- tbl_df(tp$plate)
+directory <- getwd()
+setwd("/Volumes/Sam's Drive/BOLA Study/USB20FD DUMP 5:22:19/LABS for 1 - 1000")
+tp_labs <- read.csv("LABS for Pts 726 to 750.csv")
+tp_labs <- format_lab_plate(tp_labs)
+tp_labs <- tbl_df(tp_labs)
+setwd(directory)
+tp_enc <- filter(encounters1, Patient_ID %in% unique(tp$patient_ID))
+tp_labs <- prune_lab_plates(tp_labs)
+tp_total <- add_vitals_labs(tp,tp_labs)
+tpe_total <- parse_as_different_patients(tp_total, tp_enc)

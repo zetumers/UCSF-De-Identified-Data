@@ -7,6 +7,10 @@ Patients must be processed in the following ways.
   a) variables of the same type in the same block need to be aggregated in some way.
     i) this can be done with the application of any function on the vector of the variables.
   b) this also means getting rid of the variables that aren't in the current project
+  c) finally, different variables that correspond to the same clinical concept need to be combined:
+    i) eg. there are two different types of blood pressure with different variable names.
+    ii) (UPDATE!) do this with a hash table (make it not one-to-one). It's much easier and faster
+    than my original set-up (var-key, etc.).
 3) Then we have to impute missing variables.
   a) Impute the variables in the first block.
   b) Impute the variables in the subsequent blocks with push forward or feed forward or whatever
